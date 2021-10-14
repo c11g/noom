@@ -11,4 +11,13 @@ html(lang="en")
       h1 Noom
     main
       h2 Welcome to Noom
+      div
+        input#nicknameInput(type="text", placeholder="Enter a Nickname")
+        button#nicknameButton(type="button") SAVE
+      h3 Your Nickname is 
+        span#nickname(style="color: gold") Anoymous
+      div#chatList
+      form#form
+        input#input(type="text", placeholder="Write a Message..")
+        button(type="submit") Send
     script(src="/public/js/app.js")
