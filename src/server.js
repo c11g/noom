@@ -1,5 +1,6 @@
 import http from "http";
 import express from "express";
+import { Server } from "socket.io";
 
 const app = express();
 const PORT = 3000;
@@ -12,9 +13,14 @@ app.use("/public", express.static(`${__dirname}/public`));
 app.get("/", (req, res) => res.render("home"));
 app.get("/*", (req, res) => res.redirect("/"));
 
-const server = http.createServer(app);
+const httpServer = http.createServer(app);
+const io = new Server(httpServer);
 
-server.listen(PORT, () => {
+io.on("connection", (socket) => {
+  console.log(socket);
+});
+
+httpServer.listen(PORT, () => {
   console.log(`Listening on http://localhost:${PORT}`);
 });
 

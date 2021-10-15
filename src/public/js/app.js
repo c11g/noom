@@ -1,1 +1,1 @@
-const socket = new WebSocket(`ws://${location.host}`);
+const socket = new io(`ws://${location.host}`);
